@@ -29,44 +29,44 @@
         }
 
         // Ошибки не найденного элемента
-        public static readonly ErrorCode None = new(nameof(None), 0);
-        public static readonly ErrorCode Null = new(nameof(Null), 0);
-        public static readonly ErrorCode Empty = new(nameof(Empty), 0);
+        public static readonly ErrorCode None = new(nameof(None), 1);
+        public static readonly ErrorCode Null = new(nameof(Null), 2);
+        public static readonly ErrorCode Empty = new(nameof(Empty), 3);
 
-        public static readonly ErrorCode Exist = new(nameof(Exist), 0);
-        public static readonly ErrorCode NotExist = new(nameof(NotExist), 0);
-        public static readonly ErrorCode NotFound = new(nameof(NotFound), 0);
-        public static readonly ErrorCode InvalidRequest = new(nameof(InvalidRequest), 0);
-        public static readonly ErrorCode InvalidResponse = new(nameof(InvalidResponse), 0);
+        public static readonly ErrorCode Exist = new(nameof(Exist), 4);
+        public static readonly ErrorCode NotExist = new(nameof(NotExist), 5);
+        public static readonly ErrorCode NotFound = new(nameof(NotFound), 6);
+        public static readonly ErrorCode InvalidRequest = new(nameof(InvalidRequest), 7);
+        public static readonly ErrorCode InvalidResponse = new(nameof(InvalidResponse), 8);
 
         // Серверные ошибки
-        public static readonly ErrorCode Create = new(nameof(Create), 0);
-        public static readonly ErrorCode Update = new(nameof(Update), 0);
-        public static readonly ErrorCode Delete = new(nameof(Delete), 0);
-        public static readonly ErrorCode Save = new(nameof(Save), 0);
-        public static readonly ErrorCode Conflict = new(nameof(Conflict), 0);
-        public static readonly ErrorCode Connection = new(nameof(Connection), 0);
-        public static readonly ErrorCode Server = new(nameof(Server), 0);
+        public static readonly ErrorCode Create = new(nameof(Create), 9);
+        public static readonly ErrorCode Update = new(nameof(Update), 10);
+        public static readonly ErrorCode Delete = new(nameof(Delete), 1);
+        public static readonly ErrorCode Save = new(nameof(Save), 12);
+        public static readonly ErrorCode Conflict = new(nameof(Conflict), 13);
+        public static readonly ErrorCode Connection = new(nameof(Connection), 14);
+        public static readonly ErrorCode Server = new(nameof(Server), 15);
 
         /// <summary>
         /// Не корректный синтаксис или не праавильные параметры запроса
         /// </summary>
-        public static readonly ErrorCode BadRequest = new(nameof(BadRequest), 0);
+        public static readonly ErrorCode BadRequest = new(nameof(BadRequest), 16);
 
         // Валидационные ошибки
-        public static readonly ErrorCode Validation = new(nameof(Validation), 0);
+        public static readonly ErrorCode Validation = new(nameof(Validation), 17);
 
         // Ошибки аутентификации и авторизации
 
         /// <summary>
         /// Аутентификация не пройдена, неверный пароль/логин, истекший или недействительный токен
         /// </summary>
-        public static readonly ErrorCode Unauthorized = new(nameof(Unauthorized), 0);
+        public static readonly ErrorCode Unauthorized = new(nameof(Unauthorized), 18);
 
         /// <summary>
         /// Пользователь аутентифицирован, но не имеет прав доступа к данному ресурсу (запрещено)
         /// </summary>
-        public static readonly ErrorCode Forbidden = new(nameof(Forbidden), 0);
+        public static readonly ErrorCode Forbidden = new(nameof(Forbidden), 19);
 
         public static ErrorCode Custom(string name, int code)
         {
