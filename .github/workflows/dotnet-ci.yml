@@ -1,0 +1,45 @@
+name: .NET CI
+
+on:
+  push:
+    branches: [ "main", "develop" ]
+  pull_request:
+    branches: [ "main", "develop" ]
+
+jobs:
+  test:
+    name: Run Tests (.NET ${{ matrix.dotnet }})
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        dotnet: [ '10.0' ]
+      fail-fast: true
+    
+    steps:
+    - name: 📥 Checkout code
+      uses: actions/checkout@v4
+
+    - name: ⚙️ Setup .NET SDK
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: ${{ matrix.dotnet }}
+
+    - name: 📦 Restore dependencies
+      run: dotnet restore
+
+    - name: 🔨 Build solution
+      run: dotnet build --no-restore --configuration Release
+
+    - name: 🧪 Run xUnit tests
+      run: dotnet test --no-build --configuration Release --verbosity normal --collect:"XPlat Code Coverage"
+
+    - name: 📤 Upload test results
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: test-results-${{ matrix.dotnet }}
+        path: |
+          **/TestResults/*.trx
+          **/coverage.cobertura.xml
+        retention-days: 7
