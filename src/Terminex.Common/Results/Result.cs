@@ -70,7 +70,7 @@ namespace Terminex.Common.Results
         }
 
         /*--Отображение ошибки в виде строки--------------------------------------------------------------*/
-        public string StringMessage => BuildMessage(error => $"Код: {(int)error.ErrorCode} - {error.ErrorCode}. Причина: {error.Message}");
+        public string StringMessage => BuildMessage(error => $"Код: {error.ErrorCode.Code} - {error.ErrorCode.Name}. Причина: {error.Message}");
 
         private string BuildMessage(Func<Error, string> messageSelector)
         {
