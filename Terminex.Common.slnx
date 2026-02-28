@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Terminex.Common/Terminex.Common.csproj" Id="20129e14-0594-4644-8ef6-ecc8d3f05cda" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Terminex.Common.Tests/Terminex.Common.Tests.csproj" Id="c21f7745-236f-4c65-8aad-a0e831489f9f" />
+  </Folder>
+</Solution>
