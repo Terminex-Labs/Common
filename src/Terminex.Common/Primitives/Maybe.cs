@@ -5,9 +5,9 @@
         private readonly T _value;
         private readonly bool _hasValue;
 
-        private Maybe(T valeu)
+        private Maybe(T value)
         {
-            _value = valeu;
+            _value = value;
             _hasValue = true;
         }
 
