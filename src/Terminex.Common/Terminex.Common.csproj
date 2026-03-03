@@ -1,13 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-	  <TargetFramework>net10.0</TargetFramework>
+	  <TargetFrameworks>net8.0;netstandard2.0</TargetFrameworks>
+	  <LangVersion>12</LangVersion>
 	  <ImplicitUsings>enable</ImplicitUsings>
 	  <Nullable>enable</Nullable>
 	</PropertyGroup>
 
 	<PropertyGroup>
-		<Version>1.0.0</Version>
+		<Version>1.0.1</Version>
 		<PackageId>Terminex.Common</PackageId>
 		<Authors>Пикин Семён Алексеевич. Terminex</Authors>
 		<Description>Базовые функциональные примитивы и утилиты валидации для .NET (Result, Maybe, Guard, Validation)</Description>
@@ -20,7 +21,7 @@
 
 		<!-- Теги для поиска в NuGet -->
 		<PackageTags>result-pattern maybe guard validation functional csharp</PackageTags>
-		<TargetFramework>net10.0</TargetFramework>
+		<!-- <TargetFramework>net10.0</TargetFramework> -->
 
 		<!-- Генерация документа с символами (отладочная информация) -->
 		<IncludeSymbols>true</IncludeSymbols>
@@ -28,6 +29,13 @@
 
 		<!-- Не генерировать пакет при каждом билде (лучше делать это вручную командой) -->
 		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-	</PropertyGroup>
-
+	</PropertyGroup> 
+	
+	<!-- Этот пакет-полифил позволяет использовать C# 9-12 (records, required, init) в .NET Standard 2.0 -->
+	<ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+		<PackageReference Include="IsExternalInit" Version="1.0.3">
+		<PrivateAssets>all</PrivateAssets>
+		<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
 </Project>
