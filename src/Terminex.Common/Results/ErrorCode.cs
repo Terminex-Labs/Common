@@ -1,22 +1,5 @@
 ﻿namespace Terminex.Common.Results
 {
-    //public enum ErrorCode
-    //{
-    //    None = 0,
-    //    Create = 1,
-    //    Delete = 2,
-    //    Update = 3,
-    //    NotFound = 4,
-    //    InvalidPassword = 5,
-    //    Server = 6,
-    //    Conflict = 7,
-    //    Save = 8,
-    //    Unauthorized = 9,
-    //    Validation = 10,
-    //    ValueObject = 11,
-    //    Redis = 12
-    //}
-
     public readonly record struct ErrorCode : IEquatable<ErrorCode>
     {
         public readonly string Name { get; }
@@ -29,6 +12,7 @@
         }
 
         // Ошибки не найденного элемента
+        public static readonly ErrorCode Unknown = new(nameof(Unknown), 0);
         public static readonly ErrorCode None = new(nameof(None), 1);
         public static readonly ErrorCode Null = new(nameof(Null), 2);
         public static readonly ErrorCode Empty = new(nameof(Empty), 3);
@@ -42,7 +26,7 @@
         // Серверные ошибки
         public static readonly ErrorCode Create = new(nameof(Create), 9);
         public static readonly ErrorCode Update = new(nameof(Update), 10);
-        public static readonly ErrorCode Delete = new(nameof(Delete), 1);
+        public static readonly ErrorCode Delete = new(nameof(Delete), 11);
         public static readonly ErrorCode Save = new(nameof(Save), 12);
         public static readonly ErrorCode Conflict = new(nameof(Conflict), 13);
         public static readonly ErrorCode Connection = new(nameof(Connection), 14);
@@ -70,7 +54,7 @@
 
         public static ErrorCode Custom(string name, int code)
         {
-            if (code < 10000 && code > 29999)
+            if (code < 10000 || code > 29999)
                 throw new ArgumentOutOfRangeException(nameof(code), "Кастомная ошибка должна быть в диапозоне от 10000 до 29999.");
 
             return new ErrorCode(name, code);
