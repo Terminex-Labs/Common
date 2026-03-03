@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-	  <TargetFrameworks>net8.0;netstandard2.0</TargetFrameworks>
+	  <TargetFramework>net8.0</TargetFramework>
 	  <LangVersion>12</LangVersion>
 	  <ImplicitUsings>enable</ImplicitUsings>
 	  <Nullable>enable</Nullable>
@@ -29,13 +29,5 @@
 
 		<!-- Не генерировать пакет при каждом билде (лучше делать это вручную командой) -->
 		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-	</PropertyGroup> 
-	
-	<!-- Этот пакет-полифил позволяет использовать C# 9-12 (records, required, init) в .NET Standard 2.0 -->
-	<ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
-		<PackageReference Include="IsExternalInit" Version="1.0.3">
-		<PrivateAssets>all</PrivateAssets>
-		<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-		</PackageReference>
-	</ItemGroup>
+	</PropertyGroup>
 </Project>
