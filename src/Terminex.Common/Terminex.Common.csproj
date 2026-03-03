@@ -21,7 +21,7 @@
 
 		<!-- Теги для поиска в NuGet -->
 		<PackageTags>result-pattern maybe guard validation functional csharp</PackageTags>
-		<!-- <TargetFramework>net10.0</TargetFramework> -->
+		<TargetFramework>net10.0</TargetFramework>
 
 		<!-- Генерация документа с символами (отладочная информация) -->
 		<IncludeSymbols>true</IncludeSymbols>
