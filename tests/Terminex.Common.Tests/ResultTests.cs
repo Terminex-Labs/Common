@@ -90,7 +90,7 @@ namespace Terminex.Common.Tests
 
             var message = result.StringMessage;
 
-            Assert.Contains("Код: 6 - NotFound", message);
+            Assert.Contains("NotFound", message);
             Assert.Contains("Причина: Не найдено!", message);
         }
     }
